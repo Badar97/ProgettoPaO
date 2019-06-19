@@ -1,5 +1,6 @@
 package com.progetto.oop;
 
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 
@@ -13,8 +14,9 @@ public class OopApplication {
 	{
 		String URL="https://www.dati.gov.it/api/3/action/package_show?id=f9198f21-02b8-4479-bccc-eff18564fa8f";
 		Dataset dataset=new Dataset(URL);
-		System.out.println(dataset);
-		//SpringApplication.run(OopApplication.class, args);
+		SpringApplication.run(OopApplication.class, args);
+		//Filtri test=new Filtri(dataset.getData());
+		test.test();
 	}
 
 }

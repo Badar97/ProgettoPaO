@@ -1,6 +1,6 @@
 package com.progetto.oop;
 
-public class ProntoSoccorso extends Ospedale implements Statistiche
+public class ProntoSoccorso extends Ospedale 
 {
 	private int TotaleAccessi;
 	private double MedianaTempoDiAttesa;
@@ -34,33 +34,12 @@ public class ProntoSoccorso extends Ospedale implements Statistiche
 		return Descrizione;		
 	}
 	@Override
-	public double Media(Object o)
+	public boolean equals(Object obj) 
 	{
-		return 0;
-	}
-	@Override
-	public double Minimo(Object o) 
-	{
-		return 0;
-	}
-	@Override
-	public double Massimo(Object o) 
-	{
-		return 0;
-	}
-	@Override
-	public double Somma(Object o) 
-	{
-		return 0;
-	}
-	@Override
-	public double DeviazioneStandard(Object o)
-	{
-		return 0;
-	}
-	@Override
-	public double Count(Object o) 
-	{
-		return 0;
+		ProntoSoccorso temp=(ProntoSoccorso)obj;
+		if((TotaleAccessi==temp.getTotaleAccessi())&&(MedianaTempoDiAttesa==temp.getTempoDiAttesa()))
+			return true;
+		else
+			return false;
 	}
 }

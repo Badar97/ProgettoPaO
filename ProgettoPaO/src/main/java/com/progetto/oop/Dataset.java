@@ -27,7 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Dataset implements Indice
 {
-	private Vector<OsservazioneBreveIntensiva> Dataset=new Vector<OsservazioneBreveIntensiva>();
+	private Vector<Object> Dataset=new Vector<Object>();
 	private String NomeFile;
 	private String URL;
 	
@@ -39,7 +39,6 @@ public class Dataset implements Indice
 		if(file.exists())
 		{	
 			ParsingCsv();
-			MarshallingJson();
 			SaveToFile();
 		}
 		else
@@ -48,12 +47,11 @@ public class Dataset implements Indice
 	}
 	private void ImportaDataset() throws MalformedURLException, IOException 
 	{
-		URL=SetUrlDataset(DownloadInfo());
+		URL=SetUrlDataset(DownloadJson());
 		DownloadDataset();
 		ParsingCsv();
-		MarshallingJson();
 	}
-	private String DownloadInfo()
+	private String DownloadJson()
 	{
 		String dati=new String();
 		try 
@@ -159,28 +157,6 @@ public class Dataset implements Indice
 			file.close();
 	      }
 	}
-	private void MarshallingJson() throws IOException
-	{
-		FileWriter file=new FileWriter(NomeFile+".json");
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-            mapper.writeValue(file, Dataset);
-        }
-        catch (JsonGenerationException e) 
-		{
-            e.printStackTrace();
-        }
-        catch (JsonMappingException e) 
-		{
-            e.printStackTrace();
-        }
-        catch (IOException e)
-		{
-            e.printStackTrace();
-            file.close();
-        }
-		file.close();
-	}
 	private void SaveToFile() throws IOException
 	{
 		FileWriter file=new FileWriter(NomeFile+".txt");
@@ -236,7 +212,7 @@ public class Dataset implements Indice
 	{
 		return NomeFile;
 	}
-	public Vector<OsservazioneBreveIntensiva> getData()
+	public Vector<Object> getData()
 	{
 		return Dataset;
 	}
@@ -244,7 +220,7 @@ public class Dataset implements Indice
 	public String toString()
 	{
 		String Stringa=new String();
-		for(OsservazioneBreveIntensiva o:Dataset)
+		for(Object o:Dataset)
 		{
 			Stringa+=o;
 			Stringa+="\n\n";

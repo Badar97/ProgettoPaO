@@ -1,6 +1,6 @@
 package com.progetto.oop;
 
-public class Permanenza extends ProntoSoccorso implements Statistiche
+public class Permanenza extends ProntoSoccorso
 {
 	private double MedianaTempoDiPermanenza;
 	private double BrevePermanenza;
@@ -46,5 +46,15 @@ public class Permanenza extends ProntoSoccorso implements Statistiche
 				+ "\nIl "+MediaPermanenza+"% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore."
 				+"\nIl "+LungaPermanenza+"% dei pazienti resta nel pronto soccorso per più di 48 ore.";
 				return Descrizione;		
+	}
+	@Override
+	public boolean equals(Object obj) 
+	{
+		Permanenza temp=(Permanenza)obj;
+		if((MedianaTempoDiPermanenza==temp.getPermanenza())&&(BrevePermanenza==temp.getBrevePermanenza())&&
+				(MediaPermanenza==temp.getMediaPermanenza())&&(LungaPermanenza==temp.getLungaPermanenza()))
+			return true;
+		else
+			return false;
 	}
 }

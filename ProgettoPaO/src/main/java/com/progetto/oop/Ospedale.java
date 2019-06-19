@@ -1,6 +1,6 @@
 package com.progetto.oop;
 
-public class Ospedale 
+public class Ospedale
 {
 	private String NomeStruttura;
 	private String Comune;
@@ -30,5 +30,14 @@ public class Ospedale
 	{
 		Descrizione="NomeStruttura="+NomeStruttura+";\nComune="+Comune+";\nRegione="+Regione+";\n";
 		return Descrizione;		
+	}
+	@Override
+	public boolean equals(Object obj) 
+	{
+		Ospedale temp=(Ospedale)obj;
+		if((NomeStruttura==temp.getNomeStruttura())&&(Comune==temp.getComune())&&(Regione==temp.getRegione()))
+			return true;
+		else
+			return false;
 	}
 }

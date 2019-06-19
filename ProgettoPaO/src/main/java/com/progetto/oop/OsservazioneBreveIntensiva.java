@@ -1,6 +1,6 @@
 package com.progetto.oop;
 
-public class OsservazioneBreveIntensiva extends Permanenza implements Statistiche
+public class OsservazioneBreveIntensiva extends Permanenza 
 {
 	private double PermanenzaObi;
 	private String Descrizione;
@@ -25,5 +25,14 @@ public class OsservazioneBreveIntensiva extends Permanenza implements Statistich
 		else
 			Descrizione=super.toString()+"\nIl "+PermanenzaObi+"% dei pazienti ricoverati nel pronto soccorso sono stati in osservazione breve intensiva.";
 				return Descrizione;		
+	}
+	@Override
+	public boolean equals(Object obj) 
+	{
+		OsservazioneBreveIntensiva temp=(OsservazioneBreveIntensiva)obj;
+		if(PermanenzaObi==temp.getPermanenzaObi())
+			return true;
+		else
+			return false;
 	}
 }
