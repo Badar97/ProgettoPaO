@@ -6,7 +6,6 @@ public class Permanenza extends ProntoSoccorso
 	private double BrevePermanenza;
 	private double MediaPermanenza;
 	private double LungaPermanenza;
-	private String Descrizione;
 	
 	Permanenza(String NomeStruttura,String Comune,String Regione)
 	{
@@ -41,6 +40,7 @@ public class Permanenza extends ProntoSoccorso
 	@Override
 	public String toString()
 	{
+		String Descrizione;
 		Descrizione=super.toString()+"Mediana tempo di permanenza="+MedianaTempoDiPermanenza
 				+";\nIl "+BrevePermanenza+"% dei pazienti resta nel pronto soccorso per meno di 12 ore."
 				+ "\nIl "+MediaPermanenza+"% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore."

@@ -8,6 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
@@ -208,6 +212,25 @@ public class Dataset implements Indice
 				 }
 			   return elemento;
 		}
+	public Metadati[] OttieniMetadati(Object object) throws IOException 
+	{
+		FileReader file=new FileReader(NomeFile+".csv");
+		BufferedReader buffer=new BufferedReader(file);
+		String[] Alias=((OsservazioneBreveIntensiva)object).getFields();
+		String riga=buffer.readLine();
+		String SourceField[]=riga.split(",");
+		String Type[]=((OsservazioneBreveIntensiva)object).getType();
+		Metadati metadati[]=new Metadati[Alias.length];
+		Metadati metadata;
+		System.out.println(Alias.length);
+		for(int i=0;i<Alias.length;i++)
+		{
+			
+			metadata=new Metadati(Alias[i],SourceField[i],Type[i]);
+			metadati[i]=metadata;
+		}
+		return metadati;
+	}
 	public String getNomeFile()
 	{
 		return NomeFile;

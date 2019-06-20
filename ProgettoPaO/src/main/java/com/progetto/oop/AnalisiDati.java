@@ -35,7 +35,8 @@ public class AnalisiDati
 				vettore=obj.getStatistiche(attributo[0]);
 				break;
 			case "filtri":
-				vettore=null;
+				Filtri objt=new Filtri(this.vettore);
+				//vettore=objt.OperatoreCond("$gt",attributo[0], 15);
 				break;
 			case "metadati":
 				vettore=null;
@@ -43,7 +44,7 @@ public class AnalisiDati
 			default:
 				vettore=null;
 		}
-		MarshallingJson(vettore);
+		//MarshallingJson(vettore);
 		return LeggiJson();
 	}
 	private void MarshallingJson(Object obj) throws IOException

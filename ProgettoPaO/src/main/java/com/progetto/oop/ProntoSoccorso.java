@@ -4,7 +4,6 @@ public class ProntoSoccorso extends Ospedale
 {
 	private int TotaleAccessi;
 	private double MedianaTempoDiAttesa;
-	private String Descrizione;
 	
 	ProntoSoccorso(String NomeStruttura,String Comune,String Regione) 
 	{
@@ -30,6 +29,7 @@ public class ProntoSoccorso extends Ospedale
 	@Override
 	public String toString()
 	{
+		 String Descrizione;
 		Descrizione=super.toString()+"Totale accesi="+TotaleAccessi+";\nMediana tempo di attesa="+MedianaTempoDiAttesa+";\n";
 		return Descrizione;		
 	}

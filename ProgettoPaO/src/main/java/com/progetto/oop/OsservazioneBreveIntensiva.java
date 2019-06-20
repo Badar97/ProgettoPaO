@@ -3,7 +3,6 @@ package com.progetto.oop;
 public class OsservazioneBreveIntensiva extends Permanenza 
 {
 	private double PermanenzaObi;
-	private String Descrizione;
 	
 	OsservazioneBreveIntensiva(String NomeStruttura,String Comune,String Regione)
 	{
@@ -20,6 +19,7 @@ public class OsservazioneBreveIntensiva extends Permanenza
 	@Override
 	public String toString()
 	{
+		String Descrizione;
 		if(PermanenzaObi<0.000001)
 			Descrizione=super.toString()+"\nIl pronto soccorso non prevede la permanenza dei pazienti in osservazione breve intensiva.";
 		else

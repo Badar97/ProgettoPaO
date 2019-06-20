@@ -1,11 +1,10 @@
 package com.progetto.oop;
 
-public class Ospedale
+public class Ospedale extends Metadata
 {
 	private String NomeStruttura;
 	private String Comune;
 	private String Regione;
-	private String Descrizione;
 	
 	Ospedale(String NomeStruttura,String Comune, String Regione) 
 	{
@@ -28,6 +27,7 @@ public class Ospedale
 	@Override
 	public String toString()
 	{
+		String Descrizione;
 		Descrizione="NomeStruttura="+NomeStruttura+";\nComune="+Comune+";\nRegione="+Regione+";\n";
 		return Descrizione;		
 	}
