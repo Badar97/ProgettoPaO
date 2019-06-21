@@ -31,13 +31,26 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Dataset implements Indice
+/**
+ * @author Ali Waqar Badar && Pierigè Giacomo
+ */
+
+public class Dataset implements Indice	//La Classe Dataset implementa l'Interfaccia indice che contiene delle costanti
 {
+	//Attributi
+	
 	private Vector<Object> Dataset=new Vector<Object>();
 	private String NomeFile;
 	private String URL;
 	private Metadati Metadati[];	
 	
+	//Metodi
+	/**
+	 * Viene istanziato il Dataset effettuando il paring di un file CSV.
+	 * Se il file non esiste viene prima effettuato il download
+	 * @param URL Contiene l'indirizzo da cui viene effettuato il download del dataset
+	 * @throws IOException Eccezione lanciata in caso di errori nella scrittura del CSV
+	 */
 	Dataset(String URL) throws IOException
 	{
 		NomeFile="dati";
@@ -52,26 +65,39 @@ public class Dataset implements Indice
 			ImportaDataset();
 			SaveToFile();
 	}
+	
+	/**
+	 * La procedura ricava l'URL da cui scaricare il dataset effettuando il parsing di un file json.
+	 * Una volta ottenuto il link viene effettuato il download del file e il parsing,
+	 * aggiungendo i record del dataset in oggetti che ne modellano la struttura.
+	 * @throws MalformedURLException Eccezione lanciata se non esiste l'URL
+	 * @throws IOException Eccezione lanciata in caso di errori nella scrittura del CSV
+	 */
 	private void ImportaDataset() throws MalformedURLException, IOException 
 	{
 		URL=SetUrlDataset(DownloadJson());
 		DownloadDataset();
 		ParsingCsv();
 	}
+	
+	/**
+	 * 
+	 * @return Viene restituita una stringa in fomato json contenente l'url da cui ricavare i dati
+	 */
 	private String DownloadJson()
 	{
 		String dati=new String();
 		try 
 		{
-			URLConnection openConnection = new URL(URL).openConnection();
+			URLConnection openConnection = new URL(URL).openConnection();	//Viene aperta una connessione con l'indirizzo specificato
 			openConnection.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
-			InputStream in = openConnection.getInputStream();
+			InputStream in = openConnection.getInputStream();	//Viene aperto un flusso di input per ottenere i dati json dalla pagina web
 			String riga = "";
 			 try
 			 {
 			   InputStreamReader inR = new InputStreamReader( in );
 			   BufferedReader buffer = new BufferedReader( inR );
-			   while ( ( riga = buffer.readLine() ) != null ) 
+			   while ( ( riga = buffer.readLine() ) != null ) //Attraverso il ciclo i dati nel flusso sono copiai in una stringa
 			   {
 				   dati+= riga;
 			   }
@@ -79,22 +105,28 @@ public class Dataset implements Indice
 			   {
 				 in.close();
 			   }
-		} catch(Exception e)
+		} catch(Exception e) 
 		  {
 			e.printStackTrace();
 		  }
 		return dati;
 	}
+	
+	/**
+	 * Il metodo effettua il parsing del json per ottenere l'URL da cui effettuare il download
+	 * @param info Rappresenta una stringa contenente i dati in formato json
+	 * @return Viene restituito l'indirizzo da cui effettuare il download del dataset
+	 */
 	private String SetUrlDataset(String info)
 	{
 		String URL=new String();
 		try
 		{
 			JSONObject json = (JSONObject) JSONValue.parseWithException(info); 
-			JSONObject result = (JSONObject) (json.get("result"));
-			JSONArray resources = (JSONArray) (result.get("resources"));
+			JSONObject result = (JSONObject) (json.get("result"));	//Creiamo un oggetto json che fa riferimento al campo "result"
+			JSONArray resources = (JSONArray) (result.get("resources"));	//Creiamo un vettore di oggetti json che fa riferimento al campo "resources"
 			
-			for(Object o: resources)
+			for(Object o: resources)	//Il ciclo scorre il vettore ed individua l'URL da restituire
 			{
 			    if ( o instanceof JSONObject )
 			    {
@@ -104,12 +136,18 @@ public class Dataset implements Indice
 			        	URL= (String)temp.get("url");
 			    }
 			}
-		} catch(ParseException e)
+		} catch(ParseException e)	//Cattura un'eventuale eccezione durante il parsing
 		  {
 			e.printStackTrace();
 		  }
 		return URL;
 	}
+	
+	/**
+	 * Il metodo effettua il download del file CSV contenente i record del dataset
+	 * @throws MalformedURLException	Eccezione lanciata in caso l'indirizzo sia corrotto
+	 * @throws IOException	Eccezione lanciata in caso di errore nella scrittura del file scaricato
+	 */
 	private void DownloadDataset() throws MalformedURLException, IOException
 	 {
 	    try (InputStream in = URI.create(URL).toURL().openStream()) 
@@ -117,27 +155,36 @@ public class Dataset implements Indice
 	        Files.copy(in, Paths.get(NomeFile + ".csv"));
 	    }
 	}
+	
+	/**
+	 * Il metodo effettua il parsing del file in formato CSV e dispone i records all'interno delle apposite classi
+	 * @throws IOException Eccezione lanciata in caso di errore nella lettura del file scaricato in precedenza
+	 */
 	private void ParsingCsv() throws IOException
 	{
-		FileReader file=new FileReader(NomeFile+".csv");
+		FileReader file=new FileReader(NomeFile+".csv");	//Viene creato un riferimento al file csv
 		String riga;
 		String Dati[];
-		String SourceField[];
-		ArrayList<Field> Alias;
+		String SourceField[];	//Vettore di stringhe contenente i nomi dei vari attributi dei records
+		ArrayList<Field> Alias;	//Vettore di field contenente i nomi utilizzati all'interno del programma
+								//per riferirsi ai vari attributi dei records
 		char StringaIn[];
 		char StringaOut[];
 		try
 		{
 			BufferedReader buffer=new BufferedReader(file);
 			riga = buffer.readLine();
-			SourceField=riga.split(",");
+			SourceField=riga.split(",");	//La prima riga del file contiene il nome degli attributi separati da virgole
 			while ( ( riga = buffer.readLine() ) != null ) 
 		    {
-			   StringaIn=riga.toCharArray();
+			   StringaIn=riga.toCharArray();	//Otteniamo un array di caratteri dalla stringa contenente una riga di records
 			   StringaOut=new char[riga.length()];
+			   //Con questo ciclo for il programma sostituisce le virgole contenute nei numeri decimali con dei punti
+			   //ed elimina le virgolette che delimitano i vari records. Il risultato dell'operazione è contenuto
+			   //nell'array di caratteri StringaOut
 			   for(int i=0,j=0;i<riga.length()-1;i++,j++)
 			   {
-				   if(StringaIn[i]=='\"')			
+				   if(StringaIn[i]=='\"')	
 				   { 
 					   i++;
 					   do 

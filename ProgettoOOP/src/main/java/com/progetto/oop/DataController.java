@@ -6,6 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * @author Ali Waqar Badar && Pierigè Giacomo
+ * 
+ */
+
 @Controller
 public class DataController
 {
