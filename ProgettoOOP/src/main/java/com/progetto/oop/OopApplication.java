@@ -28,7 +28,6 @@ public class OopApplication
 			System.out.println(d.get(i).getAlias());
 			System.out.println(d.get(i).getSourceField());
 			System.out.println(d.get(i).getType());
-			System.out.println("OK");
 		}
 	}
 
