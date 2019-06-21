@@ -15,39 +15,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class AnalisiDati 
 {
-	Vector<?> vettore;
+	private Dataset dataset;
 	public AnalisiDati() throws IOException
 	{
 		String URL="https://www.dati.gov.it/api/3/action/package_show?id=f9198f21-02b8-4479-bccc-eff18564fa8f";
-		Dataset dataset=new Dataset(URL);
-		vettore=dataset.getData();
+		dataset=new Dataset(URL);
 	}
-	public String OttieniJson(String oggetto,String...attributo) throws IOException
-	{
-		Object vettore;
-		switch(oggetto)
-		{
-			case "dati":
-				vettore=this.vettore;
-				break;
-			case "statistiche":
-				StatisticheDataset obj=new StatisticheDataset(this.vettore);
-				vettore=obj.getStatistiche(attributo[0]);
-				break;
-			case "filtri":
-				Filtri objt=new Filtri(this.vettore);
-				//vettore=objt.OperatoreCond("$gt",attributo[0], 15);
-				break;
-			case "metadati":
-				vettore=null;
-				break;
-			default:
-				vettore=null;
-		}
-		//MarshallingJson(vettore);
-		return LeggiJson();
-	}
-	private void MarshallingJson(Object obj) throws IOException
+	public void MarshallingJson(Object obj) throws IOException
 	{
 		FileWriter file=new FileWriter("temp.json");
 		ObjectMapper mapper = new ObjectMapper();
@@ -69,7 +43,7 @@ public class AnalisiDati
         }
 		file.close();
 	}
-	private String LeggiJson() throws FileNotFoundException,IOException
+	public String LeggiJson() throws FileNotFoundException,IOException
 	{
 		FileReader file=new FileReader("temp.json");
 		BufferedReader reader = new BufferedReader(file);
@@ -83,6 +57,10 @@ public class AnalisiDati
         file.close();
         return Json;
     }
+	public Dataset getDataset()
+	{
+		return dataset;
+	}
 
 }
 

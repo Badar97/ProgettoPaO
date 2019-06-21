@@ -5,21 +5,27 @@ import java.util.Vector;
 public class StatisticheDati implements Statistiche
 {
 	private Object vettore;
-	private double media=0;
-	private double minimo=0;
-	private double massimo=0;
-	private double deviazione_standard=0;
-	private double somma=0;
-	private int count=0;
-	private Vector<Parola> parole=null;
+	private double media;
+	private double minimo;
+	private double massimo;
+	private double deviazione_standard;
+	private double somma;
+	private int count;
+	private Vector<Parola> parole;
 	public StatisticheDati(Object vettore)
 	{
 		this.vettore=vettore;
+		Somma();
+		Count();
+		Media();
+		Minimo();
+		Massimo();
+		DeviazioneStandard();
 	}
 	@Override
 	public void Media() 
 	{
-		media=getSomma()/getCount();
+		media=somma/count;
 	}
 
 	@Override
@@ -42,7 +48,7 @@ public class StatisticheDati implements Statistiche
 		double max=vettore[0];
 		for(int i=0;i<vettore.length;i++)
 		{
-			if(vettore[i]<max)
+			if(vettore[i]>max)
 				max=vettore[i];
 		}
 		massimo=max;
@@ -52,13 +58,12 @@ public class StatisticheDati implements Statistiche
 	public void DeviazioneStandard()
 	{
 		double vettore[]=(double[])this.vettore;
-		double media=getMedia();
 		double varianza=0;
 		for(int i=0;i<vettore.length;i++)
 		{
 			varianza+=(vettore[i]-media)*(vettore[i]-media);
 		}
-		deviazione_standard=Math.sqrt(varianza/getCount());
+		deviazione_standard=Math.sqrt(varianza/count);
 	}
 
 	@Override

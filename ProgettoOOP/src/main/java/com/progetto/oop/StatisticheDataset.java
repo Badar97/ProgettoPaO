@@ -20,6 +20,7 @@ public class StatisticheDataset
 					for(int i=0;i<this.vettore.size();i++)
 					{
 						vettore[i]=((Ospedale) this.vettore.get(i)).getNomeStruttura();
+						System.out.println((Ospedale) this.vettore.get(i));
 					}
 					return vettore;
 				}
@@ -31,17 +32,6 @@ public class StatisticheDataset
 					for(int i=0;i<this.vettore.size();i++)
 					{
 						vettore[i]=((Ospedale) this.vettore.get(i)).getComune();
-					}
-					return vettore;
-				}
-				break;
-			case "Regione":
-				if(this.vettore.get(0) instanceof Ospedale )
-				{
-					String vettore[]=new String[this.vettore.size()];
-					for(int i=0;i<this.vettore.size();i++)
-					{
-						vettore[i]=((Ospedale) this.vettore.get(i)).getRegione();
 					}
 					return vettore;
 				}
@@ -112,7 +102,7 @@ public class StatisticheDataset
 					return vettore;
 				}
 				break;
-			case "Permanenza obi":
+			case "Permanenza Obi":
 				if(this.vettore.get(0) instanceof OsservazioneBreveIntensiva )
 				{
 					double vettore[]=new double[this.vettore.size()];
