@@ -1,18 +1,14 @@
 package com.progetto.oop;
 
-import java.lang.reflect.Field;
-
-public class Ospedale extends Metadata
+public class Ospedale 
 {
 	private String NomeStruttura;
 	private String Comune;
-	private String Regione;
 	
-	Ospedale(String NomeStruttura,String Comune, String Regione) 
+	Ospedale(String NomeStruttura,String Comune) 
 	{
 		this.NomeStruttura=NomeStruttura;
 		this.Comune=Comune;
-		this.Regione=Regione;
 	}
 	public String getNomeStruttura() 
 	{
@@ -22,29 +18,20 @@ public class Ospedale extends Metadata
 	{
 		return Comune;
 	}
-	public String getRegione() 
-	{
-		return Regione;
-	}
 	@Override
 	public String toString()
 	{
 		String Descrizione;
-		Descrizione="NomeStruttura="+NomeStruttura+";\nComune="+Comune+";\nRegione="+Regione+";\n";
+		Descrizione="NomeStruttura="+NomeStruttura+";\nComune="+Comune+";\nRegione=Lazio\n";
 		return Descrizione;		
 	}
 	@Override
 	public boolean equals(Object obj) 
 	{
 		Ospedale temp=(Ospedale)obj;
-		if((NomeStruttura==temp.getNomeStruttura())&&(Comune==temp.getComune())&&(Regione==temp.getRegione()))
+		if((NomeStruttura==temp.getNomeStruttura())&&(Comune==temp.getComune()))
 			return true;
 		else
 			return false;
-	}
-	@Override
-	public Field[] getCampi()
-	{
-		return this.getClass().getFields();
 	}
 }

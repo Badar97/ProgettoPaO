@@ -4,9 +4,9 @@ public class OsservazioneBreveIntensiva extends Permanenza
 {
 	private double PermanenzaObi;
 	
-	OsservazioneBreveIntensiva(String NomeStruttura,String Comune,String Regione)
+	OsservazioneBreveIntensiva(String NomeStruttura,String Comune)
 	{
-		super(NomeStruttura, Comune, Regione);
+		super(NomeStruttura, Comune);
 	}
 	public void setPermanenzaObi(double PermanenzaObi) 
 	{

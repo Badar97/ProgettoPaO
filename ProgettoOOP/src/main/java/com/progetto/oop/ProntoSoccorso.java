@@ -1,15 +1,13 @@
 package com.progetto.oop;
 
-import java.lang.reflect.Field;
-
 public class ProntoSoccorso extends Ospedale
 {
 	private int TotaleAccessi;
 	private double MedianaTempoDiAttesa;
 	
-	ProntoSoccorso(String NomeStruttura,String Comune,String Regione) 
+	ProntoSoccorso(String NomeStruttura,String Comune) 
 	{
-		super(NomeStruttura, Comune, Regione);		
+		super(NomeStruttura, Comune);		
 	}
 	public void setTotaleAccessi(int TotaleAccessi) 
 	{
@@ -44,22 +42,4 @@ public class ProntoSoccorso extends Ospedale
 		else
 			return false;
 	}	
-	@Override
-	public Field[] getCampi()
-	{
-		Field FieldsSuper[]=super.getCampi();
-		Field FieldsThis[]=this.getClass().getDeclaredFields();
-		Field Fields[]=new Field[FieldsSuper.length+FieldsThis.length];
-		for(int i=0;i<(FieldsSuper.length+FieldsThis.length);i++)
-		{
-			if(i<FieldsSuper.length)
-				Fields[i]=FieldsSuper[i];
-			else
-				Fields[i]=FieldsThis[i-FieldsSuper.length];
-		}
-		if(this.getClass().getSuperclass().getName().equals("Metadata"))
-			Fields=this.getClass().getFields();
-		System.out.println("Ok");
-		return Fields;
-	}
 }

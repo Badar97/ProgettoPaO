@@ -18,6 +18,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Vector;
 
 import org.json.simple.JSONArray;
@@ -34,6 +36,7 @@ public class Dataset implements Indice
 	private Vector<Object> Dataset=new Vector<Object>();
 	private String NomeFile;
 	private String URL;
+	private Metadati Metadati[];	
 	
 	Dataset(String URL) throws IOException
 	{
@@ -119,14 +122,15 @@ public class Dataset implements Indice
 		FileReader file=new FileReader(NomeFile+".csv");
 		String riga;
 		String Dati[];
-		String[] Metadati;
+		String SourceField[];
+		ArrayList<Field> Alias;
 		char StringaIn[];
 		char StringaOut[];
 		try
 		{
 			BufferedReader buffer=new BufferedReader(file);
 			riga = buffer.readLine();
-			Metadati=riga.split(",");
+			SourceField=riga.split(",");
 			while ( ( riga = buffer.readLine() ) != null ) 
 		    {
 			   StringaIn=riga.toCharArray();
@@ -156,13 +160,25 @@ public class Dataset implements Indice
 			   riga=new String(StringaOut);
 			   Dati=riga.split(",");
 			   OsservazioneBreveIntensiva elemento=DisponiDati(Dati);
-			   elemento.setSourceField(Metadati);
 			   Dataset.add(elemento);
 		    }
 		} finally 
 	      {
 			file.close();
 	      }
+		   Alias=new ArrayList<Field>(Arrays.asList(Ospedale.class.getDeclaredFields()));
+		   ArrayList<Field> temp=new ArrayList<Field>(Arrays.asList(ProntoSoccorso.class.getDeclaredFields()));
+		   Alias.addAll(temp);
+		   temp=new ArrayList<Field>(Arrays.asList(Permanenza.class.getDeclaredFields()));
+		   Alias.addAll(temp);
+		   temp=new ArrayList<Field>(Arrays.asList(OsservazioneBreveIntensiva.class.getDeclaredFields()));
+		   Alias.addAll(temp);
+		   Object AliasName[]=Alias.toArray();
+		   Metadati=new Metadati[SourceField.length];
+		   for(int i=0;i<SourceField.length;i++)
+		   {
+			   Metadati[i]=new Metadati((Field)AliasName[i],SourceField[i]);
+		   }
 	}
 	private void SaveToFile() throws IOException
 	{
@@ -172,7 +188,7 @@ public class Dataset implements Indice
 	}
 	private OsservazioneBreveIntensiva DisponiDati(String Dati[])
 	{
-		OsservazioneBreveIntensiva elemento=new OsservazioneBreveIntensiva(Dati[NOME_STRUTTURA],Dati[COMUNE],"Lazio");
+		OsservazioneBreveIntensiva elemento=new OsservazioneBreveIntensiva(Dati[NOME_STRUTTURA],Dati[COMUNE]);
 		   try
 		   {
 			   elemento.setTotaleAccessi(Integer.parseInt(Dati[TOTALE_ACCESSI]));
@@ -222,6 +238,10 @@ public class Dataset implements Indice
 	public Vector<Object> getData()
 	{
 		return Dataset;
+	}
+	public Metadati[] getMetadati()
+	{
+		return Metadati;
 	}
 	@Override
 	public String toString()

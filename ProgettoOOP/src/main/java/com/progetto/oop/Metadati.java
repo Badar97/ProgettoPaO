@@ -1,15 +1,17 @@
 package com.progetto.oop;
 
+import java.lang.reflect.Field;
+
 public class Metadati 
 {
 	private String Alias;
 	private String SourceField;
 	private String Type;
-	public Metadati(String Alias,String SourceField,String Type)
+	public Metadati(Field Alias,String SourceField)
 	{
-		this.Alias=Alias;
+		this.Alias=Alias.getName();
 		this.SourceField=SourceField;
-		this.Type=Type;
+		this.Type=Alias.getType().getSimpleName();
 	}
 	public String getAlias()
 	{

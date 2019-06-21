@@ -7,9 +7,9 @@ public class Permanenza extends ProntoSoccorso
 	private double MediaPermanenza;
 	private double LungaPermanenza;
 	
-	Permanenza(String NomeStruttura,String Comune,String Regione)
+	Permanenza(String NomeStruttura,String Comune)
 	{
-		super(NomeStruttura, Comune, Regione);
+		super(NomeStruttura, Comune);
 	}
 	public void setPermanenza(double MedianaTempoDiPermanenza) 
 	{
