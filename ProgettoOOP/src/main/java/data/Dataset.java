@@ -1,4 +1,4 @@
-package com.progetto.oop;
+package data;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -30,6 +30,7 @@ import org.json.simple.parser.ParseException;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.progetto.oop.Indice;
 
 /**
  * @author Ali Waqar Badar && Pierigè Giacomo

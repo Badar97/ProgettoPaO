@@ -1,4 +1,4 @@
-package filtri;
+package filter;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
