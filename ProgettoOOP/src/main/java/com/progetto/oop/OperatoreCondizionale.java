@@ -1,5 +1,7 @@
 package com.progetto.oop;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Vector;
 
 public class OperatoreCondizionale
@@ -10,113 +12,37 @@ public class OperatoreCondizionale
 	{
 		this.vettore=vettore;
 	}
-	public Vector<Object> OperatoreCond(String segno, String attributo, double...valore) 
+	public Vector<Object> Confronto(String segno, String attributo, double...valore) 
 	{
 		vettoreOut=new Vector<Object>();
-		switch(attributo)
+		System.out.println(segno);
+		System.out.println(attributo);
+		Method m=null;
+		try 
 		{
-			
-			case "Mediana tempo di permanenza":
-				if(this.vettore.get(0) instanceof Permanenza) 
-				{
-					for (int i=0; i<vettore.size(); i++)
-					{
-						Permanenza obj=(Permanenza)vettore.get(i);
-						double temp=obj.getPermanenza();
-						if (Segno(segno,temp,valore))
-							vettoreOut.add(obj);
-					}
-					return vettoreOut;
-				}
-				break; 
-				
-			case "Mediana tempo di attesa":
-				if(this.vettore.get(0) instanceof ProntoSoccorso) 
-				{
-					for (int i=0; i<vettore.size(); i++)
-					{
-						ProntoSoccorso obj=(ProntoSoccorso)vettore.get(i);
-						double temp=obj.getTempoDiAttesa();
-						if (Segno(segno,temp,valore))
-							vettoreOut.add(obj);
-					}
-					return vettoreOut;
-				}
-				break; 
-				
-			case "Totale accessi":
-				if(this.vettore.get(0) instanceof ProntoSoccorso) 
-				{
-					for (int i=0; i<vettore.size(); i++)
-					{
-						ProntoSoccorso obj=(ProntoSoccorso)vettore.get(i);
-						double temp=obj.getTotaleAccessi();
-						if (Segno(segno,temp,valore))
-							vettoreOut.add(obj);
-					}
-					return vettoreOut;
-				}
-				break; 
-				
-			case "Permanenza breve":
-				if(this.vettore.get(0) instanceof Permanenza) 
-				{
-					for (int i=0; i<vettore.size(); i++)
-					{
-						Permanenza obj=(Permanenza)vettore.get(i);
-						double temp=obj.getBrevePermanenza();
-						if (Segno(segno,temp,valore))
-							vettoreOut.add(obj);
-					}
-					return vettoreOut;
-				}
-				break; 
-				
-			case "Permanenza media":
-				if(this.vettore.get(0) instanceof Permanenza) 
-				{
-					for (int i=0; i<vettore.size(); i++)
-					{
-						Permanenza obj=(Permanenza)vettore.get(i);
-						double temp=obj.getMediaPermanenza();
-						if (Segno(segno,temp,valore))
-							vettoreOut.add(obj);
-					}
-					return vettoreOut;
-				}
-				break; 
-				
-			case "Permanenza lunga":
-				if(this.vettore.get(0) instanceof Permanenza) 
-				{
-					for (int i=0; i<vettore.size(); i++)
-					{
-						Permanenza obj=(Permanenza)vettore.get(i);
-						double temp=obj.getLungaPermanenza();
-						if (Segno(segno,temp,valore))
-							vettoreOut.add(obj);
-					}
-					return vettoreOut;
-				}
-				break;
-			case "Permanenza obi":
-				if(this.vettore.get(0) instanceof OsservazioneBreveIntensiva) 
-				{
-					for (int i=0; i<vettore.size(); i++)
-					{
-						OsservazioneBreveIntensiva obj=(OsservazioneBreveIntensiva)vettore.get(i);
-						double temp=obj.getPermanenzaObi();
-						if (Segno(segno,temp,valore))
-							vettoreOut.add(obj);
-					}
-					return vettoreOut;
-				}
-				break; 
-				
+			m=this.vettore.get(0).getClass().getMethod("get"+attributo);
+		} 
+		catch (NoSuchMethodException | SecurityException e)
+		{
+			e.printStackTrace();
 		}
-		return null;
+		System.out.println(m.getName());
+		for (int i=0; i<vettore.size(); i++)
+		{
+			double temp=0;
+			try 
+			{
+				temp = (double) m.invoke(vettore.get(i));
+			} 
+			catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e)
+			{
+				e.printStackTrace();
+			}
+			if (Segno(segno,temp,valore))
+				vettoreOut.add(vettore.get(i));
+		}
+		return vettoreOut;
 	}
-
 	private boolean Segno(String segno,double val, double...valore)
 	{
 		switch(segno)

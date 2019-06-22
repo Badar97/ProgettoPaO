@@ -1,5 +1,8 @@
 package com.progetto.oop;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class StatisticheDataset
@@ -9,118 +12,10 @@ public class StatisticheDataset
 	{
 		this.vettore=vettore;
 	}
-	private Object toArray(String attributo) 
-	{
-		switch(attributo)
-		{
-			case "Nome struttura":
-				if(this.vettore.get(0) instanceof Ospedale )
-				{
-					String vettore[]=new String[this.vettore.size()];
-					for(int i=0;i<this.vettore.size();i++)
-					{
-						vettore[i]=((Ospedale) this.vettore.get(i)).getNomeStruttura();
-						System.out.println((Ospedale) this.vettore.get(i));
-					}
-					return vettore;
-				}
-				break;
-			case "Comune":
-				if(this.vettore.get(0) instanceof Ospedale )
-				{
-					String vettore[]=new String[this.vettore.size()];
-					for(int i=0;i<this.vettore.size();i++)
-					{
-						vettore[i]=((Ospedale) this.vettore.get(i)).getComune();
-					}
-					return vettore;
-				}
-				break;
-			case "Mediana tempo di permanenza":
-				if(this.vettore.get(0) instanceof Permanenza )
-				{
-					double vettore[]=new double[this.vettore.size()];
-					for(int i=0;i<this.vettore.size();i++)
-					{
-						vettore[i]=((Permanenza) this.vettore.get(i)).getPermanenza();
-					}
-					return vettore;
-				}
-				break;
-			case "Mediana tempo di attesa":
-				if(this.vettore.get(0) instanceof ProntoSoccorso )
-				{
-					double vettore[]=new double[this.vettore.size()];
-					for(int i=0;i<this.vettore.size();i++)
-					{
-						vettore[i]=((ProntoSoccorso) this.vettore.get(i)).getTempoDiAttesa();
-					}
-					return vettore;
-				}
-				break;
-			case "Totale accessi":
-				if(this.vettore.get(0) instanceof ProntoSoccorso )
-				{
-					double vettore[]=new double[this.vettore.size()];
-					for(int i=0;i<this.vettore.size();i++)
-					{
-						vettore[i]=((ProntoSoccorso) this.vettore.get(i)).getTotaleAccessi();
-					}
-					return vettore;
-				}
-				break;
-			case "Permanenza breve":
-				if(this.vettore.get(0) instanceof Permanenza )
-				{
-					double vettore[]=new double[this.vettore.size()];
-					for(int i=0;i<this.vettore.size();i++)
-					{
-						vettore[i]=((Permanenza) this.vettore.get(i)).getBrevePermanenza();
-					}
-					return vettore;
-				}
-				break;
-			case "Permanenza media":
-				if(this.vettore.get(0) instanceof Permanenza )
-				{
-					double vettore[]=new double[this.vettore.size()];
-					for(int i=0;i<this.vettore.size();i++)
-					{
-						vettore[i]=((Permanenza) this.vettore.get(i)).getMediaPermanenza();
-					}
-					return vettore;
-				}
-				break;
-			case "Permanenza lunga":
-				if(this.vettore.get(0) instanceof Permanenza )
-				{
-					double vettore[]=new double[this.vettore.size()];
-					for(int i=0;i<this.vettore.size();i++)
-					{
-						vettore[i]=((Permanenza) this.vettore.get(i)).getLungaPermanenza();
-					}
-					return vettore;
-				}
-				break;
-			case "Permanenza Obi":
-				if(this.vettore.get(0) instanceof OsservazioneBreveIntensiva )
-				{
-					double vettore[]=new double[this.vettore.size()];
-					for(int i=0;i<this.vettore.size();i++)
-					{
-						vettore[i]=((OsservazioneBreveIntensiva) this.vettore.get(i)).getPermanenzaObi();
-					}
-					return vettore;
-				}
-				break;
-		}
-		return null;
-	}
 	public StatisticheDati getStatistiche(String attributo)
 	{
-		Object vettore=toArray(attributo);
-		StatisticheDati obj=new StatisticheDati(vettore);
-		if(vettore instanceof double[])
+		StatisticheDati obj=new StatisticheDati(toArray(attributo));
+		if(toArray(attributo).get(0) instanceof Double)
 		{
 			obj.Media();
 			obj.Minimo();
@@ -129,17 +24,37 @@ public class StatisticheDataset
 			obj.Somma();
 			obj.Count();
 		}
-		if(vettore instanceof String[])
+		if(toArray(attributo).get(0) instanceof String)
 			obj.Occorrenze();
 		return obj;
 	}
-	private Object touArray(String attributo) 
+	private ArrayList<Object> toArray(String attributo)  
 	{
-		String vettore[]=new String[this.vettore.size()];
+		ArrayList<Object> valori=new ArrayList<Object>();
+		Method m=null;
+		try 
+		{
+			m=this.vettore.get(0).getClass().getMethod("get"+attributo);
+		} 
+		catch (NoSuchMethodException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (SecurityException e)
+		{
+			e.printStackTrace();
+		}
 		for(int i=0;i<this.vettore.size();i++)
 		{
-			vettore[i]=((Ospedale) this.vettore.get(i)).getNomeStruttura();
+			try
+			{
+				valori.add(m.invoke(this.vettore.get(i)));
+			} 
+			catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) 
+			{
+				e.printStackTrace();
+			} 
 		}
-		return vettore;
+			return valori;
 	}
 }

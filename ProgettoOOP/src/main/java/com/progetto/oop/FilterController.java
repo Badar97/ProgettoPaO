@@ -10,18 +10,31 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class FilterController
 {
-	@RequestMapping ( "/filter/{attributo}/{ciao}" )
+	String attributo;
+	String segno;
+	String valore;
+	@RequestMapping ( "/filter/{filtro}" )
 	@ResponseBody
-	public String dati(@PathVariable String attributo,@PathVariable String ciao) throws IOException 
+	public String dati(@PathVariable String filtro) throws IOException 
 	{
-		return ciao+attributo;
-		//return OttieniJson(attributo);
+		OttieniFiltro(filtro);
+		return OttieniJson();
 	}
-	public String OttieniJson(String attributo) throws IOException
+	public String OttieniJson() throws IOException
 	{
 		AnalisiDati obj=new AnalisiDati();
 		OperatoreCondizionale filter=new OperatoreCondizionale(obj.getDataset().getData());
-		obj.MarshallingJson(filter.OperatoreCond("$gt", attributo, 10));
+		obj.MarshallingJson(filter.Confronto(segno,attributo,10));
 		return obj.LeggiJson();
+	}
+	private void OttieniFiltro(String filtro)
+	{
+		filtro=filtro.replaceAll("{","");
+		filtro=filtro.replaceAll("}","");
+		System.out.println(filtro);
+		String vettore[]=filtro.split(":");
+		attributo=vettore[0];
+		segno=vettore[1];
+		valore=vettore[2];
 	}
 }

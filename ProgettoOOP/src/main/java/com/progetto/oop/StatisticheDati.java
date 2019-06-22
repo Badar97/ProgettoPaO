@@ -1,10 +1,12 @@
 package com.progetto.oop;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class StatisticheDati implements Statistiche
 {
-	private Object vettore;
+	private Double ArrayNumber[];
+	private String ArrayString[];
 	private double media;
 	private double minimo;
 	private double massimo;
@@ -12,15 +14,23 @@ public class StatisticheDati implements Statistiche
 	private double somma;
 	private int count;
 	private Vector<Parola> parole;
-	public StatisticheDati(Object vettore)
+	public StatisticheDati(ArrayList<Object> vettore)
 	{
-		this.vettore=vettore;
-		Somma();
-		Count();
-		Media();
-		Minimo();
-		Massimo();
-		DeviazioneStandard();
+		if(vettore.get(0) instanceof Double)
+		{
+			ArrayNumber=vettore.toArray(new Double[vettore.size()]);
+			Somma();
+			Count();
+			Media();
+			DeviazioneStandard();
+			Minimo();
+			Massimo();
+		}
+		if(vettore.get(0) instanceof String)
+		{
+			ArrayString=vettore.toArray(new String[vettore.size()]);
+			Occorrenze();
+		}
 	}
 	@Override
 	public void Media() 
@@ -31,12 +41,11 @@ public class StatisticheDati implements Statistiche
 	@Override
 	public void Minimo() 
 	{
-		double vettore[]=(double[])this.vettore;
-		double min=vettore[0];
-		for(int i=0;i<vettore.length;i++)
+		double min=ArrayNumber[0];
+		for(int i=0;i<ArrayNumber.length;i++)
 		{
-			if(vettore[i]<min)
-				min=vettore[i];
+			if(ArrayNumber[i]<min)
+				min=ArrayNumber[i];
 		}
 		minimo=min;
 	}
@@ -44,12 +53,11 @@ public class StatisticheDati implements Statistiche
 	@Override
 	public void Massimo() 
 	{
-		double vettore[]=(double[])this.vettore;
-		double max=vettore[0];
-		for(int i=0;i<vettore.length;i++)
+		double max=ArrayNumber[0];
+		for(int i=0;i<ArrayNumber.length;i++)
 		{
-			if(vettore[i]>max)
-				max=vettore[i];
+			if(ArrayNumber[i]>max)
+				max=ArrayNumber[i];
 		}
 		massimo=max;
 	}
@@ -57,11 +65,10 @@ public class StatisticheDati implements Statistiche
 	@Override
 	public void DeviazioneStandard()
 	{
-		double vettore[]=(double[])this.vettore;
 		double varianza=0;
-		for(int i=0;i<vettore.length;i++)
+		for(int i=0;i<ArrayNumber.length;i++)
 		{
-			varianza+=(vettore[i]-media)*(vettore[i]-media);
+			varianza+=(ArrayNumber[i]-media)*(ArrayNumber[i]-media);
 		}
 		deviazione_standard=Math.sqrt(varianza/count);
 	}
@@ -69,11 +76,10 @@ public class StatisticheDati implements Statistiche
 	@Override
 	public void Somma()
 	{
-		double vettore[]=(double[])this.vettore;
 		double somma=0;
-		for(int i=0;i<vettore.length;i++)
+		for(int i=0;i<ArrayNumber.length;i++)
 		{
-			somma+=vettore[i];
+			somma+=ArrayNumber[i];
 		}
 		this.somma=somma;
 	}
@@ -81,26 +87,24 @@ public class StatisticheDati implements Statistiche
 	@Override
 	public void Count()
 	{
-		double vettore[]=(double[])this.vettore;
 		int i;
-		for(i=0;i<vettore.length;i++);
+		for(i=0;i<ArrayNumber.length;i++);
 		count=i;
 	}
 
 	@Override
 	public void Occorrenze() 
 	{
-		String vettore[]=(String[])this.vettore;
 		boolean flag;
 		Vector<Parola> parole = new Vector<Parola>();
-		parole.add(new Parola(vettore[0]));
-		for(int i=1,j;i<vettore.length;i++)
+		parole.add(new Parola(ArrayString[0]));
+		for(int i=1,j;i<ArrayString.length;i++)
 		{
 			flag=false;
 			j=0;
 			while(!flag)
 			{
-				if(vettore[i]==parole.get(j).getParola())
+				if(ArrayString[i]==parole.get(j).getParola())
 				{
 					parole.get(j).incrementaOccorrenze();
 					flag=true;
@@ -108,7 +112,7 @@ public class StatisticheDati implements Statistiche
 				j++;
 			}
 			if(!flag)
-				parole.add(new Parola(vettore[i]));
+				parole.add(new Parola(ArrayString[i]));
 		}
 		this.parole=parole;
 	}	
