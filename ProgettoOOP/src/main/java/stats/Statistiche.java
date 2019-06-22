@@ -1,4 +1,4 @@
-package stats;
+package stats; 
 
 public interface Statistiche
 {

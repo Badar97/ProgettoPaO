@@ -1,17 +1,34 @@
-package dataset;
-
+package dataset; 
+/**
+ * 
+ *La classe modella una specifica caratteristica di un pronto soccorso,
+ *la permanenza dei pazienti in osservazione breve intensiva. L'attributo PermanenzaObi
+ *rappresenta la percentuale dei pazienti con malattie che non necessitano di ricovero immediato,
+ *ma di una terapia con osservazione e di un approfondimento diagnostico
+ */
 public class OsservazioneBreveIntensiva extends Permanenza 
 {
 	private double PermanenzaObi;
-	
+	/**
+	 * Invoca il costruttore della super classe
+	 * @param NomeStruttura nome della struttura in cui i pazienti sono in osservazione
+	 * @param Comune comune dove è situata la struttura in cui i pazienti sono in osservazione
+	 */
 	public OsservazioneBreveIntensiva(String NomeStruttura,String Comune)
 	{
 		super(NomeStruttura, Comune);
 	}
+	/**
+	 * Il metodo imposta la percentuale dei pazienti in osservazione
+	 * @param PermanenzaObi percentuale dei pazienti in osserrvazione
+	 */
 	public void setPermanenzaObi(double PermanenzaObi) 
 	{
 		this.PermanenzaObi=PermanenzaObi;
 	}
+	/**
+	 * @return restituisce la percentuale di pazienti in osservazione
+	 */
 	public double getPermanenzaObi() 
 	{
 		return PermanenzaObi;

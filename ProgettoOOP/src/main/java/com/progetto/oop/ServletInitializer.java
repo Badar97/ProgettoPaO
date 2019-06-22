@@ -1,4 +1,4 @@
-package com.progetto.oop;
+package com.progetto.oop; 
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

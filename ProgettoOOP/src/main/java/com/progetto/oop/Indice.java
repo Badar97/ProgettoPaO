@@ -1,4 +1,4 @@
-package com.progetto.oop;
+package com.progetto.oop; 
 
 public interface Indice 
 {

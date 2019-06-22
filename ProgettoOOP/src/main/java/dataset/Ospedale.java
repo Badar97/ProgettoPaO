@@ -1,19 +1,30 @@
-package dataset;
-
+package dataset; 
+/**
+ * La classe modella alcune caratteristiche di un ospedale.
+ */
 public class Ospedale 
 {
 	private String NomeStruttura;
 	private String Comune;
-	
+	/**
+	 * @param NomeStruttura Nome dell'ospedale
+	 * @param Comune Nome del comune in cui è situato l'ospedale
+	 */
 	Ospedale(String NomeStruttura,String Comune) 
 	{
 		this.NomeStruttura=NomeStruttura;
 		this.Comune=Comune;
 	}
+	/**
+	 * @return Il metodo restituisce il nome dell'ospedale
+	 */
 	public String getNomeStruttura() 
 	{
 		return NomeStruttura;
 	}
+	/**
+	 * @return Il metodo restituisce il nome del comune in cui è situato l'ospedale
+	 */
 	public String getComune() 
 	{
 		return Comune;

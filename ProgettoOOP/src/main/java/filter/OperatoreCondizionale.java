@@ -1,22 +1,22 @@
-package filter;
+package filter; 
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Vector;
-
+/**
+ * 
+ * La classe si occupa di effettuare operazioni relazionali
+ */
 public class OperatoreCondizionale
 {
-	Vector<?> vettore;
-	Vector<Object> vettoreOut;
+	private Vector<?> vettore;
 	public OperatoreCondizionale(Vector<Object> vettore)
 	{
 		this.vettore=vettore;
 	}
 	public Vector<Object> Confronto(String segno, String attributo, double...valore) 
 	{
-		vettoreOut=new Vector<Object>();
-		System.out.println(segno);
-		System.out.println(attributo);
+		Vector<Object> vettoreOut=new Vector<Object>();
 		Method m=null;
 		try 
 		{
@@ -26,7 +26,6 @@ public class OperatoreCondizionale
 		{
 			e.printStackTrace();
 		}
-		System.out.println(m.getName());
 		for (int i=0; i<vettore.size(); i++)
 		{
 			double temp=0;

@@ -1,10 +1,14 @@
-package stats;
+package stats; 
 
 import java.util.ArrayList;
 import java.util.Vector;
 
 import com.progetto.oop.Parola;
-
+/**
+ * 
+ * La classe calcola le statistiche del vettore passato al costruttore
+ *
+ */
 public class StatisticheDati implements Statistiche
 {
 	private Double ArrayNumber[];
@@ -16,6 +20,11 @@ public class StatisticheDati implements Statistiche
 	private double somma;
 	private int count;
 	private Vector<Parola> parole;
+	/**
+	 * Il costruttore istanzia un vettore di tipo Double, se il parametro passato è di tipo double e ne calcola le statistiche,
+	 * mentre istanzia un vettore di tipo string, se il parametro passato è di tipo String e ne calcola le occorrenze
+	 * @param vettore vettore di cui vengono calcolate le statistiche
+	 */
 	public StatisticheDati(ArrayList<Object> vettore)
 	{
 		if(vettore.get(0) instanceof Double)
@@ -34,12 +43,17 @@ public class StatisticheDati implements Statistiche
 			Occorrenze();
 		}
 	}
+	/**
+	 * Metodo che calcola la media e imposta la relativa variabile d'istanza
+	 */
 	@Override
 	public void Media() 
 	{
 		media=somma/count;
 	}
-
+	/**
+	 * Metodo che calcola il minimo e imposta la relativa variabile d'istanza
+	 */
 	@Override
 	public void Minimo() 
 	{
@@ -51,7 +65,9 @@ public class StatisticheDati implements Statistiche
 		}
 		minimo=min;
 	}
-
+	/**
+	 * Metodo che calcola il massimo e imposta la relativa variabile d'istanza
+	 */
 	@Override
 	public void Massimo() 
 	{
@@ -63,7 +79,9 @@ public class StatisticheDati implements Statistiche
 		}
 		massimo=max;
 	}
-
+	/**
+	 * Metodo che calcola la deviazione standard e imposta la relativa variabile d'istanza
+	 */
 	@Override
 	public void DeviazioneStandard()
 	{
@@ -74,7 +92,9 @@ public class StatisticheDati implements Statistiche
 		}
 		deviazione_standard=Math.sqrt(varianza/count);
 	}
-
+	/**
+	 * Metodo che calcola la somma e imposta la relativa variabile d'istanza
+	 */
 	@Override
 	public void Somma()
 	{
@@ -85,7 +105,9 @@ public class StatisticheDati implements Statistiche
 		}
 		this.somma=somma;
 	}
-
+	/**
+	 * Metodo che conta il numero di valori e imposta la relativa variabile d'istanza
+	 */
 	@Override
 	public void Count()
 	{
@@ -93,7 +115,9 @@ public class StatisticheDati implements Statistiche
 		for(i=0;i<ArrayNumber.length;i++);
 		count=i;
 	}
-
+	/**
+	 * Metodo che conta le occorrenze e imposta la relativa variabile d'istanza
+	 */
 	@Override
 	public void Occorrenze() 
 	{
@@ -118,30 +142,51 @@ public class StatisticheDati implements Statistiche
 		}
 		this.parole=parole;
 	}	
+	/**
+	 * @return restituisce la media
+	 */
 	public double getMedia()
 	{
 		return media;
 	}
+	/**
+	 * @return restituisce il minimo
+	 */
 	public double getMinimo()
 	{
 		return minimo;
 	}
+	/**
+	 * @return restituisce il massimo
+	 */
 	public double getMassimo()
 	{
 		return massimo;
 	}
+	/**
+	 * @return restituisce la deviazione standard
+	 */
 	public double getDeviazioneStandard()
 	{
 		return deviazione_standard;
 	}
+	/**
+	 * @return restituisce la somma
+	 */
 	public double getSomma()
 	{
 		return somma;
 	}
+	/**
+	 * @return restituisce il numero degli elementi
+	 */
 	public int getCount()
 	{
 		return count;
 	}
+	/**
+	 * @return restituisce il numero delle occorrenze
+	 */
 	public Vector<Parola> getOccorrenze()
 	{
 		return parole;

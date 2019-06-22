@@ -1,4 +1,4 @@
-package data;
+package data; 
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -43,7 +43,6 @@ public class Dataset implements Indice	//La Classe Dataset implementa l'Interfac
 	//Attributi
 	
 	private Vector<Object> Dataset=new Vector<Object>();
-	private String NomeFile;
 	private String URL;
 	private Metadati Metadati[];	
 	
@@ -56,8 +55,7 @@ public class Dataset implements Indice	//La Classe Dataset implementa l'Interfac
 	 */
 	public Dataset(String URL) throws IOException
 	{
-		NomeFile="dati";
-		File file=new File(NomeFile+".csv");
+		File file=new File("dati.csv");
 		this.URL=URL;
 		if(file.exists())
 		{	
@@ -155,7 +153,7 @@ public class Dataset implements Indice	//La Classe Dataset implementa l'Interfac
 	 {
 	    try (InputStream in = URI.create(URL).toURL().openStream()) 
 	    {
-	        Files.copy(in, Paths.get(NomeFile + ".csv"));
+	        Files.copy(in, Paths.get("dati.csv"));
 	    }
 	}
 	
@@ -165,12 +163,10 @@ public class Dataset implements Indice	//La Classe Dataset implementa l'Interfac
 	 */
 	private void ParsingCsv() throws IOException
 	{
-		FileReader file=new FileReader(NomeFile+".csv");	//Viene creato un riferimento al file csv
+		FileReader file=new FileReader("dati.csv");	//Viene creato un riferimento al file csv
 		String riga;
 		String Dati[];
 		String SourceField[];	//Vettore di stringhe contenente i nomi dei vari attributi dei records
-		ArrayList<Field> Alias;	//Vettore di field contenente i nomi utilizzati all'interno del programma
-								//per riferirsi ai vari attributi dei records
 		char StringaIn[];
 		char StringaOut[];
 		try
@@ -180,14 +176,11 @@ public class Dataset implements Indice	//La Classe Dataset implementa l'Interfac
 			SourceField=riga.split(",");	//La prima riga del file contiene il nome degli attributi separati da virgole
 			while ( ( riga = buffer.readLine() ) != null ) 
 		    {
-			   StringaIn=riga.toCharArray();	//Otteniamo un array di caratteri dalla stringa contenente una riga di records
+			   StringaIn=riga.toCharArray();			//Otteniamo un array di caratteri dalla stringa contenente una riga di records
 			   StringaOut=new char[riga.length()];
-			   //Con questo ciclo for il programma sostituisce le virgole contenute nei numeri decimali con dei punti
-			   //ed elimina le virgolette che delimitano i vari records. Il risultato dell'operazione è contenuto
-			   //nell'array di caratteri StringaOut
-			   for(int i=0,j=0;i<riga.length()-1;i++,j++)
-			   {
-				   if(StringaIn[i]=='\"')	
+			   for(int i=0,j=0;i<riga.length()-1;i++,j++)	//Con questo ciclo for il programma sostituisce le virgole contenute nei numeri decimali con dei punti
+			   {											//ed elimina le virgolette che delimitano i vari records. Il risultato dell'operazione è contenuto
+				   if(StringaIn[i]=='\"')					//nell'array di caratteri StringaOut
 				   { 
 					   i++;
 					   do 
@@ -207,88 +200,117 @@ public class Dataset implements Indice	//La Classe Dataset implementa l'Interfac
 					   StringaOut[j]=StringaIn[i];
 				   }
 			   }
-			   riga=new String(StringaOut);
-			   Dati=riga.split(",");
-			   OsservazioneBreveIntensiva elemento=DisponiDati(Dati);
-			   Dataset.add(elemento);
+			   riga=new String(StringaOut);	
+			   Dati=riga.split(",");	//I vari records delimitati da virgole vengono separati e inseriti in dati
+			   OsservazioneBreveIntensiva elemento=DisponiDati(Dati);  //Il metodo dispone i records all'interno dell'oggetto
+			   Dataset.add(elemento);	//L'oggetto viene aggiunto a un vettore
 		    }
-		} finally 
-	      {
+		} 
+		finally 
+        {
 			file.close();
-	      }
-		   Alias=new ArrayList<Field>(Arrays.asList(Ospedale.class.getDeclaredFields()));
-		   ArrayList<Field> temp=new ArrayList<Field>(Arrays.asList(ProntoSoccorso.class.getDeclaredFields()));
-		   Alias.addAll(temp);
-		   temp=new ArrayList<Field>(Arrays.asList(Permanenza.class.getDeclaredFields()));
-		   Alias.addAll(temp);
-		   temp=new ArrayList<Field>(Arrays.asList(OsservazioneBreveIntensiva.class.getDeclaredFields()));
-		   Alias.addAll(temp);
-		   Object AliasName[]=Alias.toArray();
-		   Metadati=new Metadati[SourceField.length];
-		   for(int i=0;i<SourceField.length;i++)
-		   {
-			   Metadati[i]=new Metadati((Field)AliasName[i],SourceField[i]);
-		   }
+        }
+		file.close();
+		CreaMetadati(SourceField);	//Vengono creati i metadati
 	}
-	private void SaveToFile() throws IOException
+	/**
+	 * La funzione restituisce un vettore contenente i metadati del dataset
+	 * @param SourceField vettore contenente i nomi originali dei records
+	 */
+	private void CreaMetadati(String SourceField[])
+	{	
+		ArrayList<Field> Alias;	//Vettore contenente i campi utilizzati all'interno del programma per riferirsi ai vari attributi dei records
+	    Alias=new ArrayList<Field>(Arrays.asList(Ospedale.class.getDeclaredFields()));	//ArrayList contenente i campi di ospedale
+	    ArrayList<Field> temp=new ArrayList<Field>(Arrays.asList(ProntoSoccorso.class.getDeclaredFields()));	//ArrayList contenente i campi di prontosoccorso
+	    Alias.addAll(temp);	//Aggiunge temp ad alias
+	    temp=new ArrayList<Field>(Arrays.asList(Permanenza.class.getDeclaredFields()));	//ArrayList contenente i campi di permanenza
+	    Alias.addAll(temp);	//Aggiunge temp ad alias
+	    temp=new ArrayList<Field>(Arrays.asList(OsservazioneBreveIntensiva.class.getDeclaredFields()));	//ArrayList contenente i campi di osservazionebreveintensiva
+	    Alias.addAll(temp);	//Aggiunge temp ad alias
+	    Object AliasName[]=Alias.toArray();
+	    Metadati=new Metadati[SourceField.length];
+	    for(int i=0;i<SourceField.length;i++)
+	    {
+	 	   Metadati[i]=new Metadati((Field)AliasName[i],SourceField[i]);	//Crea un vettore di metadati
+	    }
+	}
+	/**
+	 * Salva una descrizione degli oggetti in un file txt
+	 * @throws IOException Eccezione dovuta ad errore nella scrittura del file
+	 */
+	private void SaveToFile() throws IOException	
 	{
-		FileWriter file=new FileWriter(NomeFile+".txt");
+		FileWriter file=new FileWriter("dati.txt");
 		BufferedWriter buffer=new BufferedWriter(file);
 		buffer.write(toString());
+		file.close();
 	}
-	private OsservazioneBreveIntensiva DisponiDati(String Dati[])
+	/**
+	 * Dispone i records all'interno dei vari campi dell'oggetto
+	 * @param Dati vettore contenente i vari records
+	 * @return
+	 */
+	private OsservazioneBreveIntensiva DisponiDati(String Dati[])	
 	{
 		OsservazioneBreveIntensiva elemento=new OsservazioneBreveIntensiva(Dati[NOME_STRUTTURA],Dati[COMUNE]);
 		   try
 		   {
 			   elemento.setTotaleAccessi(Integer.parseInt(Dati[TOTALE_ACCESSI]));
-		   } catch(NumberFormatException e)
-			 {
-			   elemento.setTotaleAccessi(0);
-			   e.printStackTrace();
-			 }
-		   try
+		   }
+		   catch(NumberFormatException e)	//Se la conversione della stringa in numero fallisce viene lanciata un'eccezione 
 		   {
-			   elemento.setTempoDiAttesa(Double.parseDouble(Dati[MEDIANA_TEMPO_DI_ATTESA]));
-		   } catch(NumberFormatException e)
-			 {
-			   elemento.setTempoDiAttesa(0);
-			   e.printStackTrace();
-			 }
+			   elemento.setTotaleAccessi(0);	//L'eccezione viene catturata dal catch e si imposta il valore a 0 di default
+			   e.printStackTrace();	//Stampa la traccia di stack
+		   }
 		   try
 		   {
 			   elemento.setPermanenza(Double.parseDouble(Dati[MEDIANA_TEMPO_DI_PERMANENZA]));
-		   } catch(NumberFormatException e)
-			 {
+		   } 
+		   catch(NumberFormatException e)
+		   {
 			   elemento.setPermanenza(0);
 			   e.printStackTrace();
-			 }
+		   }
+		   try
+		   {
+			   elemento.setTempoDiAttesa(Double.parseDouble(Dati[MEDIANA_TEMPO_DI_ATTESA]));
+		   } 
+		   catch(NumberFormatException e)
+		   {
+			   elemento.setTempoDiAttesa(0);
+			   e.printStackTrace();
+		   }
 		   try
 		   {
 			   elemento.setPermanenza(Double.parseDouble(Dati[PERMANENZA_BREVE]),Double.parseDouble(Dati[PERMANENZA_MEDIA]),Double.parseDouble(Dati[PERMANENZA_LUNGA]));
-		   } catch(NumberFormatException e)
-			 {
+		   }
+		   catch(NumberFormatException e)
+		   {
 			   elemento.setPermanenza(0,0,0);
 			   e.printStackTrace();
-			 }
+		   }
 		   try
 		   {
-			   elemento.setPermanenzaObi(Double.parseDouble(Dati[PERMANENZA_OBI]));
-		   } catch(NumberFormatException e)
-			 {
+			   if((Dati[PERMANENZA_OBI])!=null)
+				   elemento.setPermanenzaObi(Double.parseDouble(Dati[PERMANENZA_OBI]));
+		   } 
+		   catch(NumberFormatException e)
+		   {
 			   elemento.setPermanenzaObi(0);
 			   e.printStackTrace();
-			 }
+		   }
 		   return elemento;
 	}
-	public String getNomeFile()
-	{
-		return NomeFile;
-	}
+	/**
+	 * @return Il metodo restituisce un vector contenente gli oggetti del dataset	
+	 */
 	public Vector<Object> getData()
 	{
 		return Dataset;
 	}
+	/**
+	 * @return Il metodo restituisce un vector contenente i metadati del dataset	
+	 */
 	public Metadati[] getMetadati()
 	{
 		return Metadati;
