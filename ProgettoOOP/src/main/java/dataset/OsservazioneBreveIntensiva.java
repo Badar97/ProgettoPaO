@@ -1,10 +1,10 @@
-package com.progetto.oop;
+package dataset;
 
 public class OsservazioneBreveIntensiva extends Permanenza 
 {
 	private double PermanenzaObi;
 	
-	OsservazioneBreveIntensiva(String NomeStruttura,String Comune)
+	public OsservazioneBreveIntensiva(String NomeStruttura,String Comune)
 	{
 		super(NomeStruttura, Comune);
 	}

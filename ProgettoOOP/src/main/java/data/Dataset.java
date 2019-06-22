@@ -32,6 +32,8 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.progetto.oop.Indice;
 
+import dataset.*;
+
 /**
  * @author Ali Waqar Badar && Pierigè Giacomo
  */
@@ -52,7 +54,7 @@ public class Dataset implements Indice	//La Classe Dataset implementa l'Interfac
 	 * @param URL Contiene l'indirizzo da cui viene effettuato il download del dataset
 	 * @throws IOException Eccezione lanciata in caso di errori nella scrittura del CSV
 	 */
-	Dataset(String URL) throws IOException
+	public Dataset(String URL) throws IOException
 	{
 		NomeFile="dati";
 		File file=new File(NomeFile+".csv");

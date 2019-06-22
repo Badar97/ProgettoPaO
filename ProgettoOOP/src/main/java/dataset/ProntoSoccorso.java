@@ -1,4 +1,4 @@
-package com.progetto.oop;
+package dataset;
 
 public class ProntoSoccorso extends Ospedale
 {

@@ -2,10 +2,10 @@ package filter;
 
 import java.util.Vector;
 
-import com.progetto.oop.Ospedale;
-import com.progetto.oop.OsservazioneBreveIntensiva;
-import com.progetto.oop.Permanenza;
-import com.progetto.oop.ProntoSoccorso;
+import dataset.Ospedale;
+import dataset.OsservazioneBreveIntensiva;
+import dataset.Permanenza;
+import dataset.ProntoSoccorso;
 
 public class OperatoreLogico
 {
