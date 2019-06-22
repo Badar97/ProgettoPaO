@@ -4,12 +4,12 @@ public class Parola
 {
 	private String parola;
 	private int occorrenze;
-	Parola(String parola)
+	public Parola(String parola)
 	{
 		this.parola=parola;
 		occorrenze=1;
 	}
-	String getParola()
+	public String getParola()
 	{
 		return parola;	
 	}
@@ -17,7 +17,7 @@ public class Parola
 	{
 		return occorrenze;
 	}
-	void incrementaOccorrenze()
+	public void incrementaOccorrenze()
 	{
 		this.occorrenze++;
 	}

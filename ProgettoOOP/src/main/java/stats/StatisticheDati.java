@@ -1,7 +1,9 @@
-package com.progetto.oop;
+package stats;
 
 import java.util.ArrayList;
 import java.util.Vector;
+
+import com.progetto.oop.Parola;
 
 public class StatisticheDati implements Statistiche
 {

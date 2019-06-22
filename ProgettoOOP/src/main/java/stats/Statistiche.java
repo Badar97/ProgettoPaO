@@ -1,4 +1,4 @@
-package com.progetto.oop;
+package stats;
 
 public interface Statistiche
 {

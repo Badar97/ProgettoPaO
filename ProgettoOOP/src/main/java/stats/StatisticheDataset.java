@@ -1,4 +1,4 @@
-package com.progetto.oop;
+package stats;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
