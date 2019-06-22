@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import filtri.OperatoreCondizionale;
+
 @Controller
 public class FilterController
 {
@@ -17,14 +19,14 @@ public class FilterController
 	@ResponseBody
 	public String dati(@PathVariable String filtro) throws IOException 
 	{
-		OttieniFiltro(filtro);
+		//OttieniFiltro(filtro);
 		return OttieniJson();
 	}
 	public String OttieniJson() throws IOException
 	{
 		AnalisiDati obj=new AnalisiDati();
 		OperatoreCondizionale filter=new OperatoreCondizionale(obj.getDataset().getData());
-		obj.MarshallingJson(filter.Confronto(segno,attributo,10));
+		obj.MarshallingJson(filter.Confronto("$gt","MediaPermanenza",10));
 		return obj.LeggiJson();
 	}
 	private void OttieniFiltro(String filtro)

@@ -1,6 +1,11 @@
-package com.progetto.oop;
+package filtri;
 
 import java.util.Vector;
+
+import com.progetto.oop.Ospedale;
+import com.progetto.oop.OsservazioneBreveIntensiva;
+import com.progetto.oop.Permanenza;
+import com.progetto.oop.ProntoSoccorso;
 
 public class OperatoreLogico
 {
