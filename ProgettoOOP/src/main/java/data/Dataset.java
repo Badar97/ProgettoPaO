@@ -255,7 +255,7 @@ public class Dataset implements Indice	//La Classe Dataset implementa l'Interfac
 		OsservazioneBreveIntensiva elemento=new OsservazioneBreveIntensiva(Dati[NOME_STRUTTURA],Dati[COMUNE]);
 		   try
 		   {
-			   elemento.setTotaleAccessi(Integer.parseInt(Dati[TOTALE_ACCESSI]));
+			   elemento.setTotaleAccessi(Double.parseDouble(Dati[TOTALE_ACCESSI]));
 		   }
 		   catch(NumberFormatException e)	//Se la conversione della stringa in numero fallisce viene lanciata un'eccezione 
 		   {

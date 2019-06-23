@@ -130,18 +130,19 @@ public class StatisticheDati implements Statistiche
 			j=0;
 			while(!flag)
 			{
-				if(ArrayString[i]==parole.get(j).getParola())
+				if(ArrayString[i].equals(parole.get(j).getParola()))
 				{
 					parole.get(j).incrementaOccorrenze();
 					flag=true;
 				}
 				j++;
+				if(j==parole.size())
+					parole.add(new Parola(ArrayString[i]));
 			}
-			if(!flag)
-				parole.add(new Parola(ArrayString[i]));
 		}
 		this.parole=parole;
-	}	
+	}
+	
 	/**
 	 * @return restituisce la media
 	 */

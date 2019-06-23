@@ -7,7 +7,7 @@ package dataset;
  */
 public class ProntoSoccorso extends Ospedale
 {
-	private int TotaleAccessi;
+	private double TotaleAccessi;
 	private double Permanenza;
 	private double TempoDiAttesa;
 	/**
@@ -21,11 +21,11 @@ public class ProntoSoccorso extends Ospedale
 	}
 	/**
 	 * Imposta il numero degli accessi al pronto soccorso
-	 * @param TotaleAccessi numero totale di accessi al pronto soccorso
+	 * @param d numero totale di accessi al pronto soccorso
 	 */
-	public void setTotaleAccessi(int TotaleAccessi) 
+	public void setTotaleAccessi(double d) 
 	{
-		this.TotaleAccessi=TotaleAccessi;
+		this.TotaleAccessi=d;
 	}
 	/**
 	 * Imposta un indicatore del tempo di attesa
@@ -46,7 +46,7 @@ public class ProntoSoccorso extends Ospedale
 	/**
 	 * @return restituisce il numero degli accessi al rponto soccorso
 	 */
-	public int getTotaleAccessi() 
+	public double getTotaleAccessi() 
 	{
 		return TotaleAccessi;
 	}
