@@ -136,9 +136,12 @@ public class StatisticheDati implements Statistiche
 					flag=true;
 				}
 				j++;
-				if(j==parole.size())
+				if((j==parole.size())&&!flag)
+				{
 					parole.add(new Parola(ArrayString[i]));
-			}
+					flag=true;
+				}
+			}			
 		}
 		this.parole=parole;
 	}

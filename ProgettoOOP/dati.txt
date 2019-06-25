@@ -2,7 +2,7 @@ NomeStruttura=OSP. S.CAMILLO DE LELLIS;
 Comune=RIETI;
 Regione=Lazio
 Mediana tempo di permanenza=2.46;
-Totale accesi=29978;
+Totale accesi=29978.0;
 Mediana tempo di attesa=0.27;
 Il 96.41% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 3.58% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -13,7 +13,7 @@ NomeStruttura=OSP. S.SPIRITO;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=1.34;
-Totale accesi=25374;
+Totale accesi=25374.0;
 Mediana tempo di attesa=0.19;
 Il 99.83% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 0.13% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -24,7 +24,7 @@ NomeStruttura=OSP. REGIONALE OFTALMICO;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=1.17;
-Totale accesi=32797;
+Totale accesi=32797.0;
 Mediana tempo di attesa=0.53;
 Il 99.95% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 0.04% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -35,7 +35,7 @@ NomeStruttura=OSP. G. EASTMAN;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=0.18;
-Totale accesi=17959;
+Totale accesi=17959.0;
 Mediana tempo di attesa=0.05;
 Il 99.74% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 0.11% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -46,7 +46,7 @@ NomeStruttura=OSP. DI ANZIO E NETTUNO;
 Comune=ANZIO;
 Regione=Lazio
 Mediana tempo di permanenza=2.45;
-Totale accesi=25812;
+Totale accesi=25812.0;
 Mediana tempo di attesa=0.34;
 Il 91.89% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 5.94% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -57,7 +57,7 @@ NomeStruttura=OSP. ALBANO LAZIALE;
 Comune=ALBANO LAZIALE;
 Regione=Lazio
 Mediana tempo di permanenza=2.57;
-Totale accesi=24839;
+Totale accesi=24839.0;
 Mediana tempo di attesa=0.36;
 Il 92.24% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 7.13% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -68,7 +68,7 @@ NomeStruttura=OSP. S.PAOLO;
 Comune=CIVITAVECCHIA;
 Regione=Lazio
 Mediana tempo di permanenza=3.05;
-Totale accesi=19845;
+Totale accesi=19845.0;
 Mediana tempo di attesa=0.31;
 Il 90.02% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 8.97% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -79,7 +79,7 @@ NomeStruttura=OSP. L.PARODI DELFINO;
 Comune=COLLEFERRO;
 Regione=Lazio
 Mediana tempo di permanenza=3.05;
-Totale accesi=20682;
+Totale accesi=20682.0;
 Mediana tempo di attesa=0.38;
 Il 95.56% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 4.3% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -90,7 +90,7 @@ NomeStruttura=OSP. S.SEBASTIANO;
 Comune=FRASCATI;
 Regione=Lazio
 Mediana tempo di permanenza=2.21;
-Totale accesi=24868;
+Totale accesi=24868.0;
 Mediana tempo di attesa=0.25;
 Il 98.07% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 1.92% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -101,7 +101,7 @@ NomeStruttura=OSP. CIVILE CONIUGI BERNARDINI;
 Comune=PALESTRINA;
 Regione=Lazio
 Mediana tempo di permanenza=2.39;
-Totale accesi=22899;
+Totale accesi=22899.0;
 Mediana tempo di attesa=0.25;
 Il 93.43% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 6.11% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -112,7 +112,7 @@ NomeStruttura=OSP. S.GIOVANNI EVENGELISTA;
 Comune=TIVOLI;
 Regione=Lazio
 Mediana tempo di permanenza=2.27;
-Totale accesi=29293;
+Totale accesi=29293.0;
 Mediana tempo di attesa=0.24;
 Il 88.22% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 10.35% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -123,7 +123,7 @@ NomeStruttura=OSP. PAOLO COLOMBO;
 Comune=VELLETRI;
 Regione=Lazio
 Mediana tempo di permanenza=3.26;
-Totale accesi=20228;
+Totale accesi=20228.0;
 Mediana tempo di attesa=0.19;
 Il 88.9% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 10.2% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -134,7 +134,7 @@ NomeStruttura=OSP. G.GRASSI;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=2.35;
-Totale accesi=39852;
+Totale accesi=39852.0;
 Mediana tempo di attesa=0.43;
 Il 88.14% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 11.1% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -145,7 +145,7 @@ NomeStruttura=OSP. S.EUGENIO;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=4.03;
-Totale accesi=42844;
+Totale accesi=42844.0;
 Mediana tempo di attesa=1.12;
 Il 83.51% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 13.23% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -156,7 +156,7 @@ NomeStruttura=OSP. CTO ALESINI;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=1.29;
-Totale accesi=22318;
+Totale accesi=22318.0;
 Mediana tempo di attesa=0.19;
 Il 99.94% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 0.04% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -167,7 +167,7 @@ NomeStruttura=OSP.C. S.PIETRO FATEBENEFRATELLI;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=1.49;
-Totale accesi=34045;
+Totale accesi=34045.0;
 Mediana tempo di attesa=0.14;
 Il 95.2% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 4.22% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -178,7 +178,7 @@ NomeStruttura=OSP.C. FATEBENEFRATELLI;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=2.02;
-Totale accesi=26500;
+Totale accesi=26500.0;
 Mediana tempo di attesa=0.19;
 Il 99.89% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 0.1% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -189,7 +189,7 @@ NomeStruttura=OSP.C. G.VANNINI;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=2.4;
-Totale accesi=34435;
+Totale accesi=34435.0;
 Mediana tempo di attesa=0.24;
 Il 90.15% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 9.3% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -200,7 +200,7 @@ NomeStruttura=PRES. CASILINO;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=3.03;
-Totale accesi=48891;
+Totale accesi=48891.0;
 Mediana tempo di attesa=0.47;
 Il 88.66% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 9.02% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -211,7 +211,7 @@ NomeStruttura=OSP. S.MARIA GORETTI;
 Comune=LATINA;
 Regione=Lazio
 Mediana tempo di permanenza=3.14;
-Totale accesi=48366;
+Totale accesi=48366.0;
 Mediana tempo di attesa=0.16;
 Il 93.34% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 6.57% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -222,7 +222,7 @@ NomeStruttura=OSP. A.FIORINI;
 Comune=TERRACINA;
 Regione=Lazio
 Mediana tempo di permanenza=2.24;
-Totale accesi=22917;
+Totale accesi=22917.0;
 Mediana tempo di attesa=0.2;
 Il 99.77% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 0.23% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -233,7 +233,7 @@ NomeStruttura=OSP. DONO SVIZZERO;
 Comune=FORMIA;
 Regione=Lazio
 Mediana tempo di permanenza=2.01;
-Totale accesi=23316;
+Totale accesi=23316.0;
 Mediana tempo di attesa=0.12;
 Il 98.17% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 1.42% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -244,7 +244,7 @@ NomeStruttura=C.C.A. CITTA DI APRILIA;
 Comune=APRILIA;
 Regione=Lazio
 Mediana tempo di permanenza=1.45;
-Totale accesi=28816;
+Totale accesi=28816.0;
 Mediana tempo di attesa=0.24;
 Il 93.82% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 5.34% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -255,7 +255,7 @@ NomeStruttura=OSP. F.SPAZIANI;
 Comune=FROSINONE;
 Regione=Lazio
 Mediana tempo di permanenza=3.17;
-Totale accesi=34697;
+Totale accesi=34697.0;
 Mediana tempo di attesa=0.34;
 Il 84.39% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 11.2% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -266,7 +266,7 @@ NomeStruttura=OSP. S.BENEDETTO;
 Comune=ALATRI;
 Regione=Lazio
 Mediana tempo di permanenza=1.19;
-Totale accesi=19784;
+Totale accesi=19784.0;
 Mediana tempo di attesa=0.1;
 Il 99.97% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 0.02% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -277,7 +277,7 @@ NomeStruttura=OSP. SS.TRINITA';
 Comune=SORA;
 Regione=Lazio
 Mediana tempo di permanenza=2.27;
-Totale accesi=19143;
+Totale accesi=19143.0;
 Mediana tempo di attesa=0.19;
 Il 90.24% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 7.57% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -288,7 +288,7 @@ NomeStruttura=OSP. S.SCOLASTICA;
 Comune=CASSINO;
 Regione=Lazio
 Mediana tempo di permanenza=1.5;
-Totale accesi=28344;
+Totale accesi=28344.0;
 Mediana tempo di attesa=0.13;
 Il 98.96% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 0.94% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -299,7 +299,7 @@ NomeStruttura=OSP. S.PERTINI;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=3.2;
-Totale accesi=50854;
+Totale accesi=50854.0;
 Mediana tempo di attesa=0.37;
 Il 82.85% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 15.63% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -310,7 +310,7 @@ NomeStruttura=OSP. DI BELCOLLE;
 Comune=VITERBO;
 Regione=Lazio
 Mediana tempo di permanenza=2.39;
-Totale accesi=33742;
+Totale accesi=33742.0;
 Mediana tempo di attesa=0.23;
 Il 96.28% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 3.61% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -321,7 +321,7 @@ NomeStruttura=A.O. S.CAMILLO;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=3.27;
-Totale accesi=56199;
+Totale accesi=56199.0;
 Mediana tempo di attesa=0.36;
 Il 83.75% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 13.57% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -332,7 +332,7 @@ NomeStruttura=A.O. S.GIOVANNI ADDOLORATA;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=2.12;
-Totale accesi=44457;
+Totale accesi=44457.0;
 Mediana tempo di attesa=0.2;
 Il 96.28% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 3.46% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -343,7 +343,7 @@ NomeStruttura=A.O. S.FILIPPO NERI;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=4.11;
-Totale accesi=28000;
+Totale accesi=28000.0;
 Mediana tempo di attesa=1.05;
 Il 78.3% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 17.53% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -354,7 +354,7 @@ NomeStruttura=IRCCSpr BAMBINO GESU`;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=0.43;
-Totale accesi=687;
+Totale accesi=687.0;
 Mediana tempo di attesa=0.05;
 Il 100.0% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 0.0% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -365,7 +365,7 @@ NomeStruttura=POL.U. A.GEMELLI;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=4.0;
-Totale accesi=47741;
+Totale accesi=47741.0;
 Mediana tempo di attesa=0.32;
 Il 88.3% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 11.47% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -376,7 +376,7 @@ NomeStruttura=A.O.U.U. UMBERTO I;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=1.45;
-Totale accesi=78743;
+Totale accesi=78743.0;
 Mediana tempo di attesa=0.31;
 Il 88.96% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 8.83% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
@@ -387,12 +387,9 @@ NomeStruttura=A.O.U.U. S.ANDREA;
 Comune=ROMA;
 Regione=Lazio
 Mediana tempo di permanenza=5.01;
-Totale accesi=33936;
+Totale accesi=33936.0;
 Mediana tempo di attesa=1.0;
 Il 76.26% dei pazienti resta nel pronto soccorso per meno di 12 ore.
 Il 16.85% dei pazienti resta nel pronto soccorso tra le 12 ore e le 48 ore.
 Il 6.9% dei pazienti resta nel pronto soccorso per più di 48 ore.
-Il pronto soccorso non prevede la permanenza dei pazienti in osservazione breve intensiva.
-
-NomeStruttura=A.O.U.U. TOR VERGATA;
-Comune=RO
+Il pronto soccorso non prevede la permanenza dei pazienti in osse

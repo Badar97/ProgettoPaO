@@ -31,19 +31,9 @@ public class StatisticheDataset
 	{
 		StatisticheDati obj=new StatisticheDati(toArray(attributo));	/*Costruisce un oggetto di tipo statistiche dati passando
 		come parametro il vettore contenente i valori della colonna corrispondendente all'attributo specificato*/
-		if(toArray(attributo).get(0) instanceof Double)	//Se il vettore è di tipo numerico vengono calcolate le seguenti statistiche
-		{
-			obj.Media();
-			obj.Minimo();
-			obj.Massimo();
-			obj.DeviazioneStandard();
-			obj.Somma();
-			obj.Count();
-		}
-		if(toArray(attributo).get(0) instanceof String)	//Se il vettore è di tipo stringa vengono calcolate le occorrenze delle stringhe nel vettore
-			obj.Occorrenze();
 		return obj;
 	}
+	
 	/**
 	 *La funzione va ad estrapolare la colonna del dataset corrispondente all'attributo
 	 * @param attributo attributo di cui calcolare le statistiche
