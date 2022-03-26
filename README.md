@@ -12,3 +12,5 @@ Di seguito sono presenti i vari Diagrammi UML (Casi d'Uso, diagramma delle Class
 ## Diagramma delle Sequenze
 ![progetto 1-1](https://user-images.githubusercontent.com/49913737/59969140-661e7700-9547-11e9-93a4-2971668a9553.png)
 ![progetto 1-2](https://user-images.githubusercontent.com/49913737/59969144-69196780-9547-11e9-9487-5dfa0f2c7ab0.png)
+
+Progetto della materia "Programmazione ad Oggetti" del corso di Ingegneria Informatica e dell'Automazione (UNIVPM) anno universitario 2018/2019
