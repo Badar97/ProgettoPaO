@@ -71,7 +71,7 @@ Illustrate the order of operations between objects during key interactions.
 
 4. Run the application from the Main.java file.
 
-👨‍💻 Authors
-    Ali Waqar Badar
-    Giacomo Pierigè
+## Authors
+- [Ali Waqar Badar](https://github.com/Badar97)  
+- Giacomo Pierigè
 
