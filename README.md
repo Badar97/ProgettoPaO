@@ -36,7 +36,25 @@ The CSV file can be downloaded via the URL provided in the JSON response.
 
 ## 📷 Screenshots & Diagrams
 
-> The UML diagrams (Use Case, Class, Sequence) are available in the `ProgettoOOP/` folder.
+> The following UML diagrams are included to illustrate the structure and behavior of the system:
+
+### Use Case Diagram
+Provides an overview of the main interactions between the user and the system.
+   ![ProgettoOOP](https://user-images.githubusercontent.com/49913737/59968924-813ab800-9542-11e9-84ac-1b6e89cf17da.png)
+   
+### Class Diagram
+Shows the main classes of the system and their relationships. 
+   ![fine](https://user-images.githubusercontent.com/49913737/59964855-bd502780-9506-11e9-8a42-84bfdbd8de08.png)
+   
+## Sequence Diagrams
+Illustrate the order of operations between objects during key interactions.
+    Part 1:
+    ![progetto 1-1](https://user-images.githubusercontent.com/49913737/59969140-661e7700-9547-11e9-93a4-2971668a9553.png)
+    Part 2:
+    ![progetto 1-2](https://user-images.githubusercontent.com/49913737/59969144-69196780-9547-11e9-9487-5dfa0f2c7ab0.png)
+
+Sequence Diagrams
+Illustrate the order of operations between objects during key interactions.
 
 ## 🧪 How to Run
 
@@ -55,12 +73,3 @@ The CSV file can be downloaded via the URL provided in the JSON response.
     Ali Waqar Badar
     Giacomo Pierigè
 
-
-Di seguito sono presenti i vari Diagrammi UML (Casi d'Uso, diagramma delle Classi, diagramma delle Sequenze):
-## Diagramma dei Casi d'Uso
-![ProgettoOOP](https://user-images.githubusercontent.com/49913737/59968924-813ab800-9542-11e9-84ac-1b6e89cf17da.png)
-## Diagramma delle Classi
-![fine](https://user-images.githubusercontent.com/49913737/59964855-bd502780-9506-11e9-8a42-84bfdbd8de08.png)
-## Diagramma delle Sequenze
-![progetto 1-1](https://user-images.githubusercontent.com/49913737/59969140-661e7700-9547-11e9-93a4-2971668a9553.png)
-![progetto 1-2](https://user-images.githubusercontent.com/49913737/59969144-69196780-9547-11e9-9487-5dfa0f2c7ab0.png)
