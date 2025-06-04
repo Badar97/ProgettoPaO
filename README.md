@@ -48,9 +48,11 @@ Shows the main classes of the system and their relationships.
    
 ## Sequence Diagrams
 Illustrate the order of operations between objects during key interactions.
-    Part 1:
+
+Part 1:
     ![progetto 1-1](https://user-images.githubusercontent.com/49913737/59969140-661e7700-9547-11e9-93a4-2971668a9553.png)
-    Part 2:
+
+Part 2:
     ![progetto 1-2](https://user-images.githubusercontent.com/49913737/59969144-69196780-9547-11e9-9487-5dfa0f2c7ab0.png)
 
 Sequence Diagrams
